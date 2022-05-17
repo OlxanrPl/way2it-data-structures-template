@@ -66,6 +66,12 @@ public class BinaryTree {
 
     }
 
+    private Node findMinElement(Node root) {
+        if (root.left == null) return root;
+
+        return findMinElement(root.left);
+    }
+
     private boolean removeTree(int tValue, Node currRoot, Node preRoot){
 
         if (currRoot.value==tValue){
@@ -77,17 +83,44 @@ public class BinaryTree {
                 size--;
                 return true;
             }else if (currRoot.right==null && currRoot.left!=null) { // children on the left
-                preRoot.left=currRoot.left;
+                if(preRoot.left == currRoot) {
+                    preRoot.left = currRoot.left;
+                } else {
+                    preRoot.right = currRoot.left;
+                }
                 currRoot=null;
                 size--;
                 return true;
               } else if (currRoot.right!=null && currRoot.left==null) { //children on the right
-                preRoot.right=currRoot.right;
+
+                if(preRoot.left == currRoot) {
+                    preRoot.left = currRoot.right;
+                } else {
+                    preRoot.right = currRoot.right;
+                }
                 currRoot=null;
                 size--;
                 return true;
-            }else {                                                          // two children
+            }else {                                 // two children
+                   var newRoot= findMinElement(currRoot.right);  //min element from right tree
+                if (preRoot!=currRoot) {
+                    if(preRoot.left == currRoot) {         // is not the Head!!!
+                        preRoot.left = newRoot;
+                    } else {
+                        preRoot.right = newRoot;
+                    }
 
+                    newRoot.left = currRoot.left;
+                    currRoot = null;
+                    size--;
+                    return true;
+                }else {                                                          // is the Head!!!
+                    var hValue=newRoot.value;
+                    remove(hValue);
+                    currRoot.value= hValue;
+
+                    return true;
+                }
             }
 
 
@@ -109,7 +142,7 @@ public class BinaryTree {
             }
         }
 
-        return false;
+
     }
 
     // Should return true if this tree contains specified value, false - otherwise

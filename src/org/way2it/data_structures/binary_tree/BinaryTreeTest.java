@@ -101,7 +101,7 @@ public class BinaryTreeTest {
         verifyContains(binaryTree, 12, true);
         System.out.println();
 
-        boolean removed7 = binaryTree.remove(7);
+       boolean removed7 = binaryTree.remove(7);
 
         System.out.println("Verifications after removing value 7:");
         verifySize(binaryTree, 7);
