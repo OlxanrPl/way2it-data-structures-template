@@ -7,9 +7,7 @@ public class BinaryTree {
     // Represents the first node of this tree
     // Should be initialized when first value is added
     private Node root;
-
     private int size = 0;
-
     public BinaryTree() {
 
     }
@@ -71,10 +69,28 @@ public class BinaryTree {
     private boolean removeTree(int tValue, Node currRoot, Node preRoot){
 
         if (currRoot.value==tValue){
-            preRoot.right=currRoot.right;
-            preRoot.left=currRoot.left;
-            size--;
-            return true;
+            if (currRoot.right==null && currRoot.left==null){          // tree leaf
+                if (preRoot.left==currRoot) {
+                    preRoot.left=null;
+                } else { preRoot.right=null;}
+                currRoot=null;
+                size--;
+                return true;
+            }else if (currRoot.right==null && currRoot.left!=null) { // children on the left
+                preRoot.left=currRoot.left;
+                currRoot=null;
+                size--;
+                return true;
+              } else if (currRoot.right!=null && currRoot.left==null) { //children on the right
+                preRoot.right=currRoot.right;
+                currRoot=null;
+                size--;
+                return true;
+            }else {                                                          // two children
+
+            }
+
+
         }else {
 
             if(currRoot.value >tValue) {
@@ -93,6 +109,7 @@ public class BinaryTree {
             }
         }
 
+        return false;
     }
 
     // Should return true if this tree contains specified value, false - otherwise
