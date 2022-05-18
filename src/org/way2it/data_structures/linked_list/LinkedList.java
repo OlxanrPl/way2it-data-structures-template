@@ -12,41 +12,42 @@ public class LinkedList {
     private int length = 0;
 
     public LinkedList() {
+
     }
 
     // Should add new value to the end of the list and increment length
     public void add(String value) {
         Node newNode = new Node();
         Node currNode = head;
-        if (head == null){
+        if(head == null) {
             head = newNode;
-            head.value=value;
+            head.value = value;
         } else {
-           while(currNode.next!=null){
-               currNode=currNode.next;
-           }
-           newNode.value=value;
-           currNode.next=newNode;
+            while(currNode.next != null) {
+                currNode = currNode.next;
+            }
+            newNode.value = value;
+            currNode.next = newNode;
         }
-       length++;
-      }
+        length++;
+    }
 
     // Should add new value next to specified afterValue, increment length and return true
     // If afterValue is not present in list - do nothing and return false.
-    public boolean addAfter(String value, String afterValue) {
-      if (!contains(afterValue)){
-          return false;
-      }
-      Node newNode = new Node();
-        Node currNode=head;
-        while(!currNode.value.equals(afterValue)){
-            currNode=currNode.next;
-          if (afterValue.equals(currNode.value)){
-              newNode.value=value;
-              newNode.next=currNode.next;
-              currNode.next=newNode;
-              length++;
-          }
+    public boolean addAfter(String value , String afterValue) {
+        if(!contains(afterValue)) {
+            return false;
+        }
+        Node newNode = new Node();
+        Node currNode = head;
+        while(!currNode.value.equals(afterValue)) {
+            currNode = currNode.next;
+            if(afterValue.equals(currNode.value)) {
+                newNode.value = value;
+                newNode.next = currNode.next;
+                currNode.next = newNode;
+                length++;
+            }
         }
         return true;
     }
@@ -54,11 +55,11 @@ public class LinkedList {
     // Should return true if value exists in this list, false - otherwise
     public boolean contains(String value) {
         Node currNode = head;
-        for(int  i= 0;  i <length; i++) {
-              if (value.equals(currNode.value)){
+        for(int i = 0; i < length; i++) {
+            if(value.equals(currNode.value)) {
                 return true;
             }
-             currNode= currNode.next;
+            currNode = currNode.next;
         }
         return false;
     }
@@ -66,21 +67,21 @@ public class LinkedList {
     // Should remove first occurrence of the specified value from this list and decrement the length
     // If value existed and was removed - return true, false - otherwise
     public boolean remove(String value) {
-        if (!contains(value)){
+        if(!contains(value)) {
             return false;
         }
-        Node currNode=head;
-        if (currNode.value.equals(value)){
-            head=currNode.next;
-        }else{
+        Node currNode = head;
+        if(currNode.value.equals(value)) {
+            head = currNode.next;
+        } else {
             while(!currNode.next.value.equals(value)) {
                 currNode = currNode.next;
             }
-            currNode.next=currNode.next.next;
+            currNode.next = currNode.next.next;
         }
 
         length--;
-       return true;
+        return true;
     }
 
     public int getLength() {
