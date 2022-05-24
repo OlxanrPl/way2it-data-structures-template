@@ -1,14 +1,16 @@
 package org.way2it.data_structures.My_Cars;
 
-public class Car {
+public abstract class Car {
 
-    final static private Integer maxLoadCapacity = null;
+
+   // final static private Integer maxLoadCapacity = null;
     private String modeCar;
     private Integer enginePower;
     private Integer loadCapacity;
     private Integer speedAvg;
     private Integer fuelConsumpt;
 
+    public abstract Integer getMaxLoadCapacity() ;
 
     public Car(String modeCar , Integer enginePower , Integer loadCapacity , Integer speedAvg , Integer fuelConsumpt) {
 
@@ -69,6 +71,6 @@ public class Car {
 
     public double fuelPerToneKm() { // Коєфіцієнт витраит палива на тонно кілометр
 
-        return (loadCapacity / Double.parseDouble(String.valueOf(maxLoadCapacity)) * fuelConsumpt / speedAvg);
+        return (loadCapacity / Double.parseDouble(String.valueOf(getMaxLoadCapacity())) * fuelConsumpt / speedAvg);
     }
 }

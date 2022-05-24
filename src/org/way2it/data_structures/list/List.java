@@ -68,7 +68,13 @@ public class List {
 
     public int indexOf(String value) {
 
-        return IntStream.range(0 , values.length).filter(i -> get(i) == value).findFirst().orElse(-1);
+        int bound = values.length;
+        for(int i = 0; i < bound; i++) {
+            if(get(i) == value) {
+                return i;
+            }
+        }
+        return -1;
 
     }
 
