@@ -3,7 +3,7 @@ package org.way2it.data_structures.Calculator.second;
 import org.way2it.data_structures.Calculator.first.Numerable;
 
 public class MyCalculator implements Numerable {
-
+    String op;
     double a;
     double b;
 
@@ -35,31 +35,31 @@ public class MyCalculator implements Numerable {
 
     @Override
     public double division() {
-
+        op="/";
         return this.a / this.b;
     }
 
     @Override
     public double minus() {
-
+        op="-";
         return this.a - this.b;
     }
 
     @Override
     public double multiply() {
-
+        op="*";
         return this.a * this.b;
     }
 
     @Override
     public double plus() {
-
+        op="+";
         return this.a + this.b;
     }
 
     public void printRez(double rez) {
 
-        System.out.println("Result operation - " + rez);
+        System.out.println("Result operation "+this.a+" "+this.op+" "+this.b+" = " + rez);
 
     }
 }
