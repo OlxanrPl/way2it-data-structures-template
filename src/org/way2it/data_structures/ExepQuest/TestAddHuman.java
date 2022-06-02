@@ -1,5 +1,12 @@
 package org.way2it.data_structures.ExepQuest;
+/*Створити клас Людина, дати властивості (ім’я, вік, емейл).
 
+Створити свій кастомний Exception - 2 шт.
+
+Перевіряти вік та емейл коистувача і відповідно кидати :
+UnderAgeException - якщо людина має вік менше 18 років
+IncorrectEmailException - якщо людина ввела електронну адресу і в ній немає символа ‘@’.
+*/
 
 import java.util.Scanner;
 
