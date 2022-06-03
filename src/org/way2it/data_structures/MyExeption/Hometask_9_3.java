@@ -9,11 +9,13 @@
 package org.way2it.data_structures.MyExeption;
 
 public class Hometask_9_3 {
+
     public static void main(String[] args) throws Exception {
+
         Methods metods1 = new Methods(-56 , 5);
-        System.out.println("* "+metods1.multiply());
-        System.out.println("/ "+ metods1.division());
-        System.out.println("+ "+ metods1.plus());
-        System.out.println("- "+metods1.minus());
+        System.out.println("* " + metods1.multiply());
+        System.out.println("/ " + metods1.division());
+        System.out.println("+ " + metods1.plus());
+        System.out.println("- " + metods1.minus());
     }
 }

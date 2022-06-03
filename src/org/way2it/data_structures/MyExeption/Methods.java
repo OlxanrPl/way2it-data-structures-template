@@ -5,6 +5,7 @@ public class Methods {
     double valueB;
 
     public Methods(double valueA , double valueB) throws Exception {
+
         checkNum(valueA , valueB);
         MyException(valueA , valueB);
         this.valueA = valueA;
@@ -12,6 +13,7 @@ public class Methods {
     }
 
     public static void checkNum(double valueA , double valueB) throws IllegalAccessException {
+
         if(valueA < 0 && valueB < 0) {
             throw new IllegalArgumentException();
         } else if((valueA == 0 && valueB != 0) || (valueA != 0 && valueB == 0)) {
@@ -22,19 +24,23 @@ public class Methods {
     }
 
     static void MyException(double valueA , double valueB) throws Exception {
+
         if(valueA > 0 && valueB > 0)
             throw new Exception("Error a>0 and b>0 !!!");
     }
 
     public double getValueA() {
+
         return valueA;
     }
 
     public double getValueB() {
+
         return valueB;
     }
 
     public double plus() {
+
         double rez = this.valueA + this.valueB;
         return rez;
     }

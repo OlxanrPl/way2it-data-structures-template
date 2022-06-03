@@ -16,8 +16,8 @@ public class Hometask_9_2 {
     public static void main(String[] args) {
         numA = enterNumber();
         numB = enterNumber();
-        int sumAB=numA+numB;
-              System.out.printf(SUMMA,numA,numB,sumAB);
+        int sumAB = numA + numB;
+        System.out.printf(SUMMA , numA , numB , sumAB);
     }
 
     private static int enterNumber() {
