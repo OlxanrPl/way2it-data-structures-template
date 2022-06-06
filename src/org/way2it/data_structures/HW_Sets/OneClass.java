@@ -1,13 +1,13 @@
 package org.way2it.data_structures.HW_Sets;
 
-public class oneClass  implements Comparable <oneClass>{
+public class OneClass implements Comparable <OneClass>{
     private String name;
     private int age;
 
-    public oneClass() {
+    public OneClass() {
     }
 
-    public oneClass(String name , int codeId) {
+    public OneClass(String name , int codeId) {
         this.name = name;
         this.age = codeId;
     }
@@ -35,13 +35,13 @@ public class oneClass  implements Comparable <oneClass>{
 
 
     @Override
-    public int compareTo(oneClass o) {
+    public int compareTo(OneClass o) {
         if (this.getAge()==(o.getAge())){
             return 0;
         }else if (this.getAge() >o.getAge()) {
-            return 1;
-        }else {
             return -1;
+        }else {
+            return 1;
         }
 
     }

@@ -23,7 +23,7 @@ public class Bouquet {
         String sBouquet = "";
         for(int i = 0; i < bouquet.size(); i++) {
             sBouquet = sBouquet + " Flower - " + bouquet.get(i).getColor() + " price - " + bouquet.get(i).getPrice() + "\n";
-        }
+              }
         return sBouquet;
     }
 
