@@ -11,37 +11,37 @@ package org.way2it.data_structures.HW_Bank;
 
 public class UserServiceImpl implements UserService, Comparable<UserServiceImpl> {
 
-    User name;
-    Account account;
+  User name;
+  Account account;
 
-    public UserServiceImpl(User name , Account account) {
+  public UserServiceImpl(User name, Account account) {
 
-        this.name = name;
-        this.account = account;
-    }
+    this.name = name;
+    this.account = account;
+  }
 
-    @Override
-    public String getAccount() {
+  @Override
+  public String getAccount() {
 
-        return account.toString();
-    }
+    return account.toString();
+  }
 
-    @Override
-    public double Tax() {
+  @Override
+  public double tax() {
 
-        return this.account.getBalance() * 0.05;
-    }
+    return this.account.getBalance() * 0.05;
+  }
 
-    @Override
-    public String getUsers() {
+  @Override
+  public String getUsers() {
 
-        return name.getName();
-    }
+    return name.getName();
+  }
 
 
-    @Override
-    public int compareTo(UserServiceImpl o) {
+  @Override
+  public int compareTo(UserServiceImpl o) {
 
-        return getUsers().compareTo(o.getUsers());
-    }
+    return getUsers().compareTo(o.getUsers());
+  }
 }
