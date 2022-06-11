@@ -2,11 +2,11 @@ package org.way2it.data_structures.ExepQuest;
 
 import java.util.ArrayList;
 
-public class AddHuman {
+public class HumanService {
 
   private final ArrayList<Human> questDb = new ArrayList<Human>();
 
-  public AddHuman() {
+  public HumanService() {
 
   }
 

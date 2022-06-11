@@ -19,7 +19,7 @@ public class TestAddHuman {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        AddHuman qDb = new AddHuman();
+        HumanService qDb = new HumanService();
         while(true) {
             Human human = new Human();
             System.out.println(ENTER_NAME);

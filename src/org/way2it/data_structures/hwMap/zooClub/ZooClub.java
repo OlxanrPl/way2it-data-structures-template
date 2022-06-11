@@ -1,4 +1,4 @@
-package org.way2it.data_structures.HwMap.ZooClub;
+package org.way2it.data_structures.hwMap.zooClub;
 /*Додати людину до клубу
 Додати тваринку до людини
 Видалити(забрати) тваринку від людини

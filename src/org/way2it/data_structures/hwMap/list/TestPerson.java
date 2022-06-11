@@ -1,4 +1,4 @@
-package org.way2it.data_structures.HwMap.List;
+package org.way2it.data_structures.hwMap.list;
 /*Описати структуру коли людині може належати список акаунтів та зробити можливість
 додати людину до списку;
 додати акаунт до списку;

@@ -1,4 +1,4 @@
-package org.way2it.data_structures.HwMap.ZooClub;
+package org.way2it.data_structures.hwMap.zooClub;
 
 /*Створити структуру Зооклуб.
 Створити клас Person , який описати двома полями : ім’я , вік.

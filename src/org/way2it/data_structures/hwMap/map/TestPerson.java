@@ -1,4 +1,4 @@
-package org.way2it.data_structures.HwMap.Map;
+package org.way2it.data_structures.hwMap.map;
 
 public class TestPerson {
 
