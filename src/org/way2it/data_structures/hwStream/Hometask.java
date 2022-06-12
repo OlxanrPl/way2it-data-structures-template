@@ -1,6 +1,5 @@
 package org.way2it.data_structures.hwStream;
 /*Дана колекція клас People (з полями name - ім'я, age - вік, sex - стать)
-
 Вибрати чоловіків-військовозобов'язаних (від 18 до 27 років)
 Знайти середній вік серед чоловіків
 Знайти кількість потенційно працездатних людей увибірці (тобто від 18 років і з огляду на що жінки виходять в 55 років, а чоловік в 60)
@@ -18,6 +17,7 @@ import java.util.Comparator;
 
 public class Hometask {
 
+  public static final String PRINT_PEOPLE = "Name - %s, age - %s, sex - %s  %n";
 
   public static void main(String[] args) {
 
@@ -37,7 +37,7 @@ public class Hometask {
     }};
     System.out.println("Вибрати чоловіків-військовозобов'язаних (від 18 до 27 років)");
     pl.stream().filter(p -> p.sex.equals("MAN") && (p.age > 17 && p.age < 28))
-        .forEach((e) -> System.out.printf("Name - %s , age - %s %n", e.name, e.age));
+        .forEach((e) -> System.out.printf(PRINT_PEOPLE, e.name, e.age, e.sex));
     System.out.println("Знайти середній вік серед чоловіків");
     System.out.println(pl.stream().filter(p -> p.sex.equals("MAN")).mapToInt(p -> p.age).average());
     System.out.println(
@@ -45,13 +45,13 @@ public class Hometask {
     pl.stream().filter(p -> ((p.sex.equals("MAN") && (p.age > 17 && p.age < 61)) ||
             (p.sex.equals("WOMEN") && (p.age > 17 && p.age < 56))))
         .forEach(
-            (e) -> System.out.printf("Name - %s, age - %s, sex - %s  %n", e.name, e.age, e.sex));
+            (e) -> System.out.printf(PRINT_PEOPLE, e.name, e.age, e.sex));
     System.out.println("Відсортувати колекцію людей за ім'ям в зворотному алфавітному порядку");
     pl.stream().sorted((o1, o2) -> -o2.compareTo(o1)).forEach(
-        (e) -> System.out.printf("Name - %s, age - %s, sex - %s  %n", e.name, e.age, e.sex));
+        (e) -> System.out.printf(PRINT_PEOPLE, e.name, e.age, e.sex));
     System.out.println("Відсортувати колекцію людей спочатку за ім’ям, а потім за віком");
     pl.stream().sorted(Comparator.comparing(People::getName).thenComparing(People::getAge)).forEach(
-        (e) -> System.out.printf("Name - %s, age - %s, sex - %s  %n", e.name, e.age, e.sex));
+        (e) -> System.out.printf(PRINT_PEOPLE, e.name, e.age, e.sex));
     System.out.println("Знайти найстаршу людину");
     System.out.println(
         pl.stream().sorted(Comparator.comparing(People::getAge)).skip(pl.size() - 1).findFirst());
@@ -61,7 +61,7 @@ public class Hometask {
     System.out.println(pl.stream().filter(p -> p.sex.equals("WOMEN")).count());
     System.out.println("Вивеcти всіх жінок в яких ім’я починається на “A”");
     pl.stream().filter(p -> p.sex.equals("WOMEN") && p.name.indexOf("A") == 0).forEach(
-        (e) -> System.out.printf("Name - %s, age - %s, sex - %s  %n", e.name, e.age, e.sex));
+        (e) -> System.out.printf(PRINT_PEOPLE, e.name, e.age, e.sex));
   }
 
 }
