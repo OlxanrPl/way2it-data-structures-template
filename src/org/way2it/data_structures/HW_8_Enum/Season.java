@@ -6,7 +6,7 @@ public enum Season {
   SUMMER,
   AUTUMN;
 
-  static {
+  /*static {
     WINTER.next = SPRING;
     WINTER.prev = AUTUMN;
     SPRING.next = SUMMER;
@@ -30,5 +30,5 @@ public enum Season {
 
   public Season getNext() {
     return next;
-  }
+  }*/
 }
