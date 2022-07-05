@@ -16,6 +16,7 @@ public class TestPerson {
 
 
   public static void main(String[] args) {
+
     List<Person> personList = new ArrayList<>();
     Person person1 = new Person("Peeter", 23);
     Person person2 = new Person("Anna", 25);
@@ -37,8 +38,8 @@ public class TestPerson {
     System.out.println(listString);
     lengthPerson.forEach(System.out::println);
     System.out.println(personList.toString());
-    personList.stream().map(p->p.name.toString()).forEach(System.out::println);
-IntStream lengthPerson2 = personList.stream().mapToInt(p->p.name.length());
+    personList.stream().map(p -> p.name.toString()).forEach(System.out::println);
+    IntStream lengthPerson2 = personList.stream().mapToInt(p -> p.name.length());
     lengthPerson2.forEach(System.out::println);
   }
 }
