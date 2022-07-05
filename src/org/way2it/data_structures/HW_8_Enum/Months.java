@@ -1,5 +1,6 @@
 package org.way2it.data_structures.HW_8_Enum;
 
+import java.util.Arrays;
 import java.util.List;
 
 public enum Months {
@@ -16,10 +17,10 @@ public enum Months {
   NOVEMBER(30, Season.AUTUMN),
   DECEMBER(31, Season.WINTER);
 
-  final static String MONTHEXIST = "Такий місяць існує ";
-  final static String MONTHNOTEXIST = "Такий місяць відсутній ";
-  final static String DAYPAR = "Прана кількість днів ";
-  final static String DAYNOTPAR = "Не парана кількість днів";
+  final static String MONTH_EXIST = "Такий місяць існує ";
+  final static String MONTH_NOT_EXIST = "Такий місяць відсутній ";
+  final static String DAY_PAR = "Прана кількість днів ";
+  final static String DAY_NOT_PAR = "Не парана кількість днів";
   final int days;
   final Season season;
 
@@ -32,41 +33,41 @@ public enum Months {
     return List.of(values());
   }
 
-  public static void isMonth(String month) {
+  public static void isMonthExist(String month) {
     if (asList().stream().anyMatch(e -> e.name().equals(month))) {
 
-      System.out.println(MONTHEXIST);
+      System.out.println(MONTH_EXIST);
     } else {
-      System.out.println(MONTHNOTEXIST);
+      System.out.println(MONTH_NOT_EXIST);
     }
   }
 
-  public static void thisSeasons(String month) {
+  public static void printThisSeasons(String month) {
     var montIs = Months.valueOf(month);
     asList().stream().filter(e -> e.season.equals(montIs.season))
         .forEach((e) -> System.out.println(e.name()));
   }
 
-  public static void equalsDays(String month) {
+  public static void printEqualsDays(String month) {
     var montIs = Months.valueOf(month);
     asList().stream().filter(e -> e.days == montIs.days)
         .forEach((e) -> System.out.println(e.name() + " " + e.getDays()));
   }
 
-  public static void beforeDays(String month) {
+  public static void printBeforeDays(String month) {
     var montIs = Months.valueOf(month);
     var monthExist = asList().stream().anyMatch(e -> e.days < montIs.days);
     if (monthExist) {
       asList().stream().filter(e -> e.days < montIs.days)
           .forEach(e -> System.out.println(e.name() + " " + e.getDays()));
     } else {
-      System.out.println(MONTHNOTEXIST);
+      System.out.println(MONTH_NOT_EXIST);
 
     }
 
   }
 
-  public static void afterDays(String month) {
+  public static void printAfterDays(String month) {
     var montIs = Months.valueOf(month);
     var monthExist = asList().stream().anyMatch(e -> e.days > montIs.days);
 
@@ -74,45 +75,45 @@ public enum Months {
       asList().stream().filter(e -> e.days > montIs.days)
           .forEach(e -> System.out.println(e.name() + " " + e.getDays()));
     } else {
-      System.out.println(MONTHNOTEXIST);
+      System.out.println(MONTH_NOT_EXIST);
 
     }
 
 
   }
 
- /* public static void nextSeason(String month) {
+  public static void printNextSeason(String month) {
 
     int index = Season.valueOf(String.valueOf(Months.valueOf(month).getSeason())).ordinal();
-    Season nextSeason = Season.values()[index + 1 > 3 ? 0 : index + 1];
+    Season nextSeason = Season.values()[index + 1 > Arrays.stream(Season.values()).count()-1 ? 0 : index + 1];
     System.out.println(nextSeason.name());
 
-  }*/
+  }
 
-  /* public static void preSeason(String month) {
+   public static void printPreSeason(String month) {
 
      int index = Season.valueOf(String.valueOf(Months.valueOf(month).getSeason())).ordinal();
-     Season nextSeason = Season.values()[index - 1 < 0 ? 3 : index - 1];
+     Season nextSeason = Season.values()[index - 1 < 0 ? ((int)Arrays.stream(Season.values()).count()-1) : index - 1];
      System.out.println(nextSeason.name());
 
-   }*/
-  public static void nextSeasonNext(String month) {
+   }
+ /* public static void printNextSeasonNext(String month) {
 
     System.out.println(Months.valueOf(month).getSeason().getNext());
   }
 
-  public static void preSeasonPrev(String month) {
+  public static void printPreSeasonPrev(String month) {
 
     System.out.println(Months.valueOf(month).getSeason().getPrev());
-  }
+  }*/
 
-  public static void getParDays() {
+  public static void printParDays() {
 
     asList().stream().filter(e -> e.days % 2 == 0)
         .forEach((e) -> System.out.println(e.name() + " " + e.getDays()));
   }
 
-  public static void getNotParDays() {
+  public static void printNotParDays() {
 
     asList().stream().filter(e -> e.days % 2 != 0)
         .forEach((e) -> System.out.println(e.name() + " " + e.getDays()));
@@ -121,9 +122,9 @@ public enum Months {
   public static void isParDays(String month) {
     var montIs = Months.valueOf(month).getDays();
     if (montIs % 2 == 0) {
-      System.out.println(DAYPAR);
+      System.out.println(DAY_PAR);
     } else {
-      System.out.println(DAYNOTPAR);
+      System.out.println(DAY_NOT_PAR);
     }
   }
 

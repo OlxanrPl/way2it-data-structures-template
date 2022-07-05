@@ -1,6 +1,5 @@
 package org.way2it.data_structures.HW_8_Enum;
 
-import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -26,42 +25,41 @@ public class Services {
     month = sc.nextLine().toUpperCase(Locale.ROOT);
     System.out.println(MENU);
     try {
-      while (true)
-      switch (sc.nextInt()) {
-        case 1:
-          Months.isMonth(month);
-          break;
-        case 2:
-          Months.thisSeasons(month);
-          break;
-        case 3:
-          Months.equalsDays(month);
-          break;
-        case 4:
-          Months.beforeDays(month);
-          break;
-        case 5:
-          Months.afterDays(month);
-          break;
-        case 6:
-          Months.nextSeasonNext(month);
-          break;
-        case 7:
-          Months.preSeasonPrev(month);
-          break;
-        case 8:
-          Months.getParDays();
-          break;
-        case 9:
-          Months.getNotParDays();
-          break;
-        case 10:
-          Months.isParDays(month);
-          break;
-
-        case 11:
-
-          System. exit(0);
+      while (true) {
+        switch (sc.nextInt()) {
+          case 1:
+            Months.isMonthExist(month);
+            break;
+          case 2:
+            Months.printThisSeasons(month);
+            break;
+          case 3:
+            Months.printEqualsDays(month);
+            break;
+          case 4:
+            Months.printBeforeDays(month);
+            break;
+          case 5:
+            Months.printAfterDays(month);
+            break;
+          case 6:
+            Months.printNextSeason(month);
+            break;
+          case 7:
+            Months.printPreSeason(month);
+            break;
+          case 8:
+            Months.printParDays();
+            break;
+          case 9:
+            Months.printNotParDays();
+            break;
+          case 10:
+            Months.isParDays(month);
+            break;
+          case 11:
+            System.exit(0);
+        }
       }
     } catch (Exception e) {
       e.printStackTrace();
