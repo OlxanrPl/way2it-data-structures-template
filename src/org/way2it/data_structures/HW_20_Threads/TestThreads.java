@@ -34,7 +34,7 @@ public class TestThreads {
     Thread tr = new MyThread();
     tr.start();
     tr.join();
-    System.out.println("");
+    System.out.println(" ");
     RunnableThread rThr = new RunnableThread();
     Thread thread = new Thread(rThr);
     thread.start();
@@ -48,7 +48,7 @@ public class TestThreads {
       for (int i = 1; i <= fibonacciLan; i++) {
         System.out.print(fibonachi(i) + " ");
         try {
-          sleep(1000);
+          Thread.sleep(1000);
         } catch (InterruptedException e) {
           e.printStackTrace();
         }
